@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="XZcjIY" name="Xenos" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" defines="JUCE_MODAL_LOOPS_PERMITTED=1"
+              companyName="Raphael Radna" bundleIdentifier="com.raphaelradna.xenos"
+              pluginFormats="buildAAX,buildAU,buildLV2,buildVST,buildVST3"
+              pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
+              pluginCode="XNOS" aaxIdentifier="com.raphaelradna.xenos" lv2Uri="www.raphaelradna.com/plugins/xenos"
+              pluginName="Xenos" pluginDesc="Xenos" pluginManufacturerCode="RRAD"
+              pluginManufacturer="Raphael Radna" companyWebsite="www.raphaelradna.com"
+              version="1.0.0" displaySplashScreen="0">
+  <MAINGROUP id="FMEK9K" name="Xenos">
+    <GROUP id="{FCFEFEC3-EFD3-98E0-5824-779D6E9C9BBC}" name="Resources">
+      <FILE id="qhACbb" name="background.png" compile="0" resource="1" file="Resources/background.png"/>
+    </GROUP>
+    <GROUP id="{2EBC9012-C6A5-25C8-6639-810DA40700E2}" name="Source">
+      <FILE id="PqprUc" name="ParamListener.h" compile="0" resource="0" file="Source/ParamListener.h"/>
+      <FILE id="SipA7u" name="ParamMenu.h" compile="0" resource="0" file="Source/ParamMenu.h"/>
+      <FILE id="HxKb5t" name="ParamSlider.h" compile="0" resource="0" file="Source/ParamSlider.h"/>
+      <FILE id="k2ILvR" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="LoAWYF" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="A6U5GJ" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="pHoBI1" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="HO0GNW" name="Quantizer.cpp" compile="1" resource="0" file="Source/Quantizer.cpp"/>
+      <FILE id="SEdLKo" name="Quantizer.h" compile="0" resource="0" file="Source/Quantizer.h"/>
+      <FILE id="v9vakw" name="RandomSource.cpp" compile="1" resource="0"
+            file="Source/RandomSource.cpp"/>
+      <FILE id="kVDvHL" name="RandomSource.h" compile="0" resource="0" file="Source/RandomSource.h"/>
+      <FILE id="WXedLx" name="RandomWalk.cpp" compile="1" resource="0" file="Source/RandomWalk.cpp"/>
+      <FILE id="wLRYxy" name="RandomWalk.h" compile="0" resource="0" file="Source/RandomWalk.h"/>
+      <FILE id="RTsAWR" name="Scale.cpp" compile="1" resource="0" file="Source/Scale.cpp"/>
+      <FILE id="vwihfK" name="Scale.h" compile="0" resource="0" file="Source/Scale.h"/>
+      <FILE id="cAmz4x" name="Utility.cpp" compile="1" resource="0" file="Source/Utility.cpp"/>
+      <FILE id="NbC429" name="Utility.h" compile="0" resource="0" file="Source/Utility.h"/>
+      <FILE id="ooNKb0" name="Xenos.h" compile="0" resource="0" file="Source/Xenos.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Xenos"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Xenos"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../../../Applications/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug"/>
+        <CONFIGURATION isDebug="0" name="Release"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="/Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="/Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="/Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="/Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="/Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="/Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="/Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="/Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="/Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="/Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="/Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="/Applications/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2019>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
