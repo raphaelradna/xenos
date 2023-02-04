@@ -1,10 +1,10 @@
 # Xenos
 
-Xenos is a virtual instrument plug-in that implements and extends the Dynamic Stochastic Synthesis (DSS) algorithm invented by Iannis Xenakis. It is open-source, cross-platform, and can be built in a number of plugin formats.
+Xenos is a virtual instrument plug-in that implements and extends the Dynamic Stochastic Synthesis (DSS) algorithm invented by Iannis Xenakis. Programmed in C++ with the JUCE framework, Xenos is open-source, cross-platform, and can be built in a number of plug-in formats.
 
 ![](Extra/xenosInterface.png "The Xenos interface")
 
-Features include:
+Key features include:
 - Authentic DSS engine
 - Xenharmonic pitch quantizer
 - Custom scale import in the [Scala](https://www.huygens-fokker.org/scala/) format
@@ -19,14 +19,32 @@ Features include:
 - Simple and streamlined interface
 - Free and open source
 
-## Build
+Xenos was first presented to the Meta–Xenakis Global Symposium, and is the subject of a master’s degree from the Media Arts and Technology (MAT) program at UC Santa Barbara.
 
-1. [Download](https://juce.com/get-juce/download) JUCE
-2. Clone or [download](https://github.com/raphaelradna/xenos/archive/refs/heads/main.zip) Xenos
+## Quick Start Video
+
+Watch the [Quick Start video](https://youtu.be/ha5xsKm7MtE) on YouTube.
+
+## Installation Notes
+
+Xenos has been tested on macOS 10.14.6 and Windows 10 (64-bit).
+
+### Build from Source
+
+1. Download [JUCE](https://juce.com/get-juce/download)
+2. Clone or download [Xenos](https://github.com/raphaelradna/xenos/archive/refs/heads/main.zip)
 3. Open Xenos.jucer in the Projucer
-4. Export the project for your IDE and platform (e.g. Xcode (maxOS) or Visual Studio 2019); see [here](https://docs.juce.com/master/tutorial_new_projucer_project.html) for help
+4. Export the project for your IDE and platform, e.g., Xcode (macOS) or Visual Studio 2019 (Windows); see [here](https://docs.juce.com/master/tutorial_new_projucer_project.html) for more information
 5. Compile Xenos using your IDE (or make on Linux)
-6. Copy the plug-in binary (e.g., Xenos.component, Xenos.vst3, etc.) to the proper location for your platform and host software
-7. Open a suitable plug-in host application, add Xenos on a virtual instrument track, and enjoy!
+6. Move the plug-in binary, e.g., Xenos.component or Xenos.vst3, to the proper location according to your platform, host software, and plug-in format
+    - e.g., `/Macintosh HD/Library/Audio/Plug-Ins/Components` (MacOS)
+    - e.g., `C:\Program Files\Common Files\VST3` (Windows)
+7. Open a suitable plug-in host application and  add Xenos on a software instrument track
 
-## Pre-built releases and user manual coming soon!
+### Pre-Built Binaries
+
+1. Download the latest Xenos release from [GitHub](https://github.com/raphaelradna/xenos/releases)
+2. Extract the plug-in binary, i.e., Xenos.component or Xenos.vst3, and move it to the proper location according to your platform, host software, and plug-in format
+    - e.g., `/Macintosh HD/Library/Audio/Plug-Ins/Components` (MacOS)
+    - e.g., `C:\Program Files\Common Files\VST3` (Windows)
+3. Open a suitable plug-in host application and add Xenos on a software instrument track
