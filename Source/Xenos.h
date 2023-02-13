@@ -35,7 +35,7 @@ struct XenosCore {
     void reset()
     {
         for (unsigned i = 0; i < MAX_POINTS; ++i) {
-            pitchWalk.reset(i, mtos(pitchCenter) / nPoints);
+            pitchWalk.reset(i, mtos(pitchCenter, sampleRate) / nPoints);
             ampWalk.reset(i, uniform(generator));
         }
         calcMetaParams();
@@ -52,8 +52,8 @@ struct XenosCore {
     {
         double min = pC - pW / 2;
         double max = pC + pW / 2;
-        periodRange[0] = mtos(min);
-        periodRange[1] = mtos(max);
+        periodRange[0] = mtos(min, sampleRate);
+        periodRange[1] = mtos(max, sampleRate);
         quantizer.setRange(max, min);
     }
 
