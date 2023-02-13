@@ -20,7 +20,7 @@
 #include "Utility.h"
 
 #define MAX_POINTS (128)
-#define NUM_VOICES (64)
+#define NUM_VOICES (128)
 
 struct XenosCore {
     void initialize(double sr)
@@ -161,9 +161,10 @@ struct XenosVoice : public juce::SynthesiserVoice {
     }
 
     void startNote(int note, float velocity, juce::SynthesiserSound*,
-                   int /*currentPitchWheelPosition*/) override
+                   int currentPitchWheelPosition) override
     {
         xenos.pitchCenter = note;
+        xenos.setBend(currentPitchWheelPosition);
         adsr.noteOn();
         xenos.reset();
     }
@@ -183,7 +184,7 @@ struct XenosVoice : public juce::SynthesiserVoice {
     void renderNextBlock(juce::AudioSampleBuffer& outputBuffer, int startSample,
                          int numSamples) override
     {
-        if (isVoiceActive()) {
+        if (adsr.isActive()) {
             while (--numSamples >= 0) {
                 auto currentSample
                     = xenos() * adsr.getNextSample() * polyGainFactor;
@@ -192,7 +193,6 @@ struct XenosVoice : public juce::SynthesiserVoice {
                 ++startSample;
             }
         } else {
-            adsr.reset();
             clearCurrentNote();
         }
     }
@@ -201,6 +201,27 @@ struct XenosVoice : public juce::SynthesiserVoice {
     juce::ADSR adsr;
     float a = 0.1f, d = 0.1f, s = 1.0f, r = 0.1f;
     const double polyGainFactor = 1 / sqrt(NUM_VOICES / 4);
+};
+
+//==============================================================================
+class XenosSynth : public juce::Synthesiser {
+public:
+    void noteOn(const int midiChannel, const int midiNoteNumber,
+                const float velocity)
+    {
+        const juce::ScopedLock sl(lock);
+
+        for (auto* sound: sounds) {
+            if (sound->appliesToNote(midiNoteNumber)
+                && sound->appliesToChannel(midiChannel)) {
+                juce::SynthesiserVoice* voice
+                    = findFreeVoice(sound, midiChannel, midiNoteNumber,
+                                    isNoteStealingEnabled());
+                startVoice(voice, sound, midiChannel, midiNoteNumber, velocity);
+            }
+        }
+    }
+private:
 };
 
 //==============================================================================
@@ -339,5 +360,5 @@ public:
 private:
     juce::MidiKeyboardState& keyboardState;
     juce::MidiBuffer midiBuffer;
-    juce::Synthesiser xenosSynth;
+    XenosSynth xenosSynth;
 };
