@@ -41,6 +41,32 @@ Xenos has been tested on macOS 10.14.6 and Windows 10 (64-bit).
     - e.g., `C:\Program Files\Common Files\VST3` (Windows)
 7. Open a suitable plug-in host application and  add Xenos on a software instrument track
 
+### Build from source (Linux)
+
+0. Install dependencies to compile a JUCE project:
+    ```
+    sudo apt install libasound2-dev libjack-jackd2-dev \
+        ladspa-sdk \
+        libcurl4-openssl-dev  \
+        libfreetype6-dev \
+        libx11-dev libxcomposite-dev libxcursor-dev libxcursor-dev libxext-dev libxinerama-dev libxrandr-dev libxrender-dev \
+        libwebkit2gtk-4.0-dev
+    ```
+
+1. Clone Xenos:
+    `git clone https://github.com/raphaelradna/xenos.git`
+2. Navigate into Xenos folder:
+    `cd xenos`
+3. Clone JUCE:
+    `git clone https://github.com/juce-framework/JUCE.git`
+4. Configure the build:
+    `mkdir -p build/Release && cd build/Release && cmake -D CMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../..`
+5. Build Xenos:
+    `cmake --build ./ --config Release`
+
+Once built, Xenos VST3 and LV2 plugins will be in `xenos/build/Release/Xenos_artefacts/Release`. 
+However, they should have already been automatically copied to the default location for such plugins on you computer (Probably ~/.vst3 and ~/.lv2).
+
 ### Pre-Built Binaries
 
 1. Download the latest Xenos release from [GitHub](https://github.com/raphaelradna/xenos/releases)
