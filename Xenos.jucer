@@ -3,7 +3,7 @@
 <JUCERPROJECT id="XZcjIY" name="Xenos" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" defines="JUCE_MODAL_LOOPS_PERMITTED=1"
               companyName="Raphael Radna" bundleIdentifier="com.raphaelradna.xenos"
-              pluginFormats="buildAAX,buildAU,buildLV2,buildVST3" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
+              pluginFormats="buildAAX,buildAU,buildLV2,buildVST3,buildStandalone" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               pluginCode="XNOS" aaxIdentifier="com.raphaelradna.xenos" lv2Uri="www.raphaelradna.com/plugins/xenos"
               pluginName="Xenos" pluginDesc="Xenos" pluginManufacturerCode="RRAD"
               pluginManufacturer="Raphael Radna" companyWebsite="http://www.raphaelradna.com"
@@ -37,7 +37,7 @@
       <FILE id="ooNKb0" name="Xenos.h" compile="0" resource="0" file="Source/Xenos.h"/>
     </GROUP>
   </MAINGROUP>
-  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_WEB_BROWSER="0" JUCE_USE_WIN_WEBVIEW2="0" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
@@ -79,13 +79,32 @@
         <MODULEPATH id="juce_gui_extra" path="/Applications/JUCE/modules"/>
       </MODULEPATHS>
     </VS2019>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" targetName="Xenos" isDebug="1" optimisation="1" enablePluginBinaryCopyStep="0"/>
+        <CONFIGURATION name="Release" targetName="Xenos" isDebug="0" optimisation="3" enablePluginBinaryCopyStep="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../3rdparty/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../3rdparty/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../3rdparty/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../3rdparty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../3rdparty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../3rdparty/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../3rdparty/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../3rdparty/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../3rdparty/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../3rdparty/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../3rdparty/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../3rdparty/JUCE/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
-            useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
